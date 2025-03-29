@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head runat="server">
+    <meta charset="UTF-8" />
+    <meta name="description" content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Title -->
+    <title>VIDYA VARIDHI</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/logo.png" />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .mg-left-5 {
+        margin-left: 5px;
+      }
+
+      .blink_me {
+        animation: blinker 1s linear infinite;
+      }
+
+      @keyframes blinker {
+        50% {
+          opacity: 0;
+        }
+      }
+
+      .textshadow {
+        text-shadow: 1px 1px 0 #ff8c00, 2px 2px 0 #ff8c00;
+      }
+
+      .clickhere {
+        color: white;
+        position: absolute;
+        bottom: 2%;
+        left: 18%;
+        font-size: 38px;
+        font-weight: bold;
+        text-shadow: 1px 1px 0 #344a7b, 2px 2px 0 #344a7b;
+      }
+
+      .hover_bkgr_fricc {
+        background: rgba(0, 0, 0, 0.4);
+        cursor: pointer;
+        display: none;
+        height: 100%;
+        position: fixed;
+        text-align: center;
+        top: 0;
+        width: 100%;
+        z-index: 10000;
+      }
+
+      .hover_bkgr_fricc .helper {
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+      }
+
+      .hover_bkgr_fricc > div {
+        background-color: #fff;
+        box-shadow: 10px 10px 60px #555;
+        display: inline-block;
+        height: auto;
+        max-width: 600px;
+        min-height: 100px;
+        vertical-align: middle;
+        width: 90%;
+        position: relative;
+        border-radius: 8px;
+        padding: 10px 10px;
+      }
+
+      .popupCloseButton {
+        color: darkred;
+        background-color: #fff;
+        /*border: 3px solid #999;*/
+        border-radius: 50px;
+        cursor: pointer;
+        display: inline-block;
+        font-family: arial;
+        font-weight: bold;
+        position: absolute;
+        top: -20px;
+        right: -20px;
+        font-size: 25px;
+        line-height: 30px;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+      }
+
+      .popupCloseButton:hover {
+        background-color: #ccc;
+      }
+
+      .trigger_popup_fricc {
+        cursor: pointer;
+        font-size: 20px;
+        margin: 20px;
+        display: inline-block;
+        font-weight: bold;
+      }
+      canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <canvas id="bgCanvas"></canvas>
+      <!-- Preloader -->
+      <div id="preloader">
+        <div class="loader"></div>
+      </div>
+      <!-- /Preloader -->
+      <!-- Welcome Area Start -->
+      <section class="welcome-area">
+        <div class="welcome-slides owl-carousel" id="slider">
+          <div class="single-welcome-slide">
+            <div class="welcome-content h-100">
+              <div class="row h-100 align-items-center">
+                <div class="col-12">
+                  <div
+                    class="welcome-text text-center"
+                    style="
+                      display: flex;
+                      flex-direction: column;
+                      align-items: anchor-center;
+                    "
+                  >
+                    <div
+                      style="
+                        height: 300px;
+                        width: auto;
+                        width: fit-content;
+                        border-radius: 50%;
+                        background-color: transparent;
+                      "
+                    >
+                      <img
+                        src="img/logo.png"
+                        style="height: 100%; width: auto"
+                      />
+                    </div>
+                    <h2 data-animation="fadeInLeft" style="color: #009fe3">
+                      Vidya Varidhi Vidyalaya
+                    </h2>
+                    <a
+                      href="#"
+                      class=""
+                      style="
+                        color: white;
+                        background-color: #009fe3;
+                        padding: 5px;
+                        border-radius: 8px;
+                      "
+                      data-animation="fadeInLeft"
+                      data-delay="800ms"
+                      >Visit website</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="single-welcome-slide">
+            <div class="welcome-content h-100">
+              <div class="row h-100 align-items-center">
+                <div class="col-12">
+                  <div
+                    class="welcome-text text-center"
+                    style="
+                      display: flex;
+                      flex-direction: column;
+                      align-items: anchor-center;
+                    "
+                  >
+                    <div
+                      style="
+                        height: 300px;
+                        width: auto;
+                        width: fit-content;
+                        border-radius: 50%;
+                        background-color: transparent;
+                      "
+                    >
+                      <img
+                        src="img/logo.png"
+                        style="height: 100%; width: auto"
+                      />
+                    </div>
+                    <h2 data-animation="fadeInLeft" style="color: #ffb200">
+                      Vidya Varidhi Mahavidyalaya
+                    </h2>
+                    <a
+                      href="#"
+                      class=""
+                      style="
+                        color: white;
+                        background-color: #ffb200;
+                        padding: 5px;
+                        border-radius: 8px;
+                      "
+                      data-animation="fadeInLeft"
+                      data-delay="800ms"
+                      >Visit website</a
+                    >
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </section>
+      <!-- Welcome Area End -->
+      <!-- **** All JS Files ***** -->
+      <!-- jQuery 2.2.4 -->
+      <script src="js/jquery.min.js"></script>
+      <!-- Popper -->
+      <script src="js/popper.min.js"></script>
+      <!-- Bootstrap -->
+      <script src="js/bootstrap.min.js"></script>
+      <!-- All Plugins -->
+      <script src="js/roberto.bundle.js"></script>
+
+      <!-- Put ur JS here -->
+      <script src="js/pages/default.js"></script>
+      <script src="js/pages/master.js"></script>
+
+      <!-- Active -->
+      <script src="js/default-assets/active.js"></script>
+      <script>
+        const canvas = document.getElementById("bgCanvas");
+        const ctx = canvas.getContext("2d");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const dots = [];
+        const numDots = 100;
+
+        for (let i = 0; i < numDots; i++) {
+          dots.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            radius: Math.random() * 4 + 1,
+            dx: (Math.random() - 0.5) * 2,
+            dy: (Math.random() - 0.5) * 2,
+            color: Math.random() > 0.5 ? "#009fe3" : "#ffb200",
+          });
+        }
+
+        function animate() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          dots.forEach((dot) => {
+            ctx.fillStyle = dot.color;
+            ctx.beginPath();
+            ctx.arc(dot.x, dot.y, dot.radius, 0, Math.PI * 2);
+            ctx.fill();
+            dot.x += dot.dx;
+            dot.y += dot.dy;
+
+            if (dot.x < 0 || dot.x > canvas.width) dot.dx *= -1;
+            if (dot.y < 0 || dot.y > canvas.height) dot.dy *= -1;
+          });
+          requestAnimationFrame(animate);
+        }
+
+        window.addEventListener("resize", () => {
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+        });
+
+        animate();
+      </script>
+    </div>
+    <div class="hover_bkgr_fricc">
+      <span class="helper"></span>
+      <div>
+        <div class="popupCloseButton">X</div>
+        <div id="divDiscountOffer">
+          <h4 class="blink_me">
+            <span class="textshadow" style="color: #344a7b">Hurry up!!!</span>
+          </h4>
+          <img src="img/admission_new.jpg" style="max-width: 100%" />
+          <!-- <span class="clickhere blink_me">Click Here</span> -->
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
